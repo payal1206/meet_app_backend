@@ -1,7 +1,7 @@
 {
     "headers": [
     {
-      "source": "meet-app-frontend.vercel.app(.*)",
+      "source": "meet-app-backend.vercel.app(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
