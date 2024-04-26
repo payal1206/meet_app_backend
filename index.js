@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use("/", require("./routes"));
 
-const PORT = process.env.PORT;
+const PORT = 8080;
 
 const server = app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
@@ -25,7 +25,6 @@ const io = require("socket.io")(server, {
     origin: true,
   },
 });
-
 io.use(async (socket, next) => {
   try {
     const token = socket.handshake.query.token;
@@ -33,7 +32,7 @@ io.use(async (socket, next) => {
     socket.userId = payload.id;
     next();
   } catch (err) {
-    // console.log(err);
+     console.log(err);
   }
 });
 
@@ -109,7 +108,7 @@ io.on("connection", (socket) => {
           name: user.name,
         });
       } catch (err) {
-        // console.log(err);
+        console.log(err);
       }
     }
   });

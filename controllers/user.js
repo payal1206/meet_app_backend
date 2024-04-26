@@ -20,7 +20,8 @@ login = async (req, res) => {
           // Password match
           if (isMatch) {
             const payload = { id: user._id, name: user.name };
-            jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, (err, token) => {
+            // console.log("token",process.env.ACCESS_TOKEN_SECRET);
+            jwt.sign(payload, "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMjY4OTEyMywiaWF0IjoxNzEyNjg5MTIzfQ.-kaOOzUv5sR_2QNHr1ZBxpkw7__Bm90ls8Ly39e2CRo", (err, token) => {
               res.status(200).json({
                 message: "Signed In",
                 user: payload,
